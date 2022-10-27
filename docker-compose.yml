@@ -12,7 +12,7 @@ services:
       - DEBUG=1
       - SECRET_KEY=foo
       - SQL_ENGINE=django.db.backends.postgresql
-      - SQL_DATABASE=demo
+      - SQL_NAME=demo
       - SQL_USER=postgres
       - SQL_PASSWORD=demo
       - SQL_HOST=db
