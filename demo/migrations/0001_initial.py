@@ -7,21 +7,28 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Record',
+            name="Record",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nmi', models.CharField(max_length=10)),
-                ('meter_serial_number', models.CharField(max_length=12)),
-                ('read', models.CharField(max_length=15)),
-                ('date', models.DateTimeField()),
-                ('file_name', models.TextField()),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nmi", models.CharField(max_length=10)),
+                ("meter_serial_number", models.CharField(max_length=12)),
+                ("read", models.CharField(max_length=15)),
+                ("date", models.DateTimeField()),
+                ("file_name", models.TextField()),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
             ],
         ),
     ]

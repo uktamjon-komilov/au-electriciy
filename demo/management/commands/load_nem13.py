@@ -1,5 +1,8 @@
-from django.core.management.base import BaseCommand, CommandError
-from demo.utils import extract_values, create_record_from_values
+from typing import List
+
+from django.core.management.base import BaseCommand
+
+from demo.utils import create_record_from_values, extract_values
 
 
 class Command(BaseCommand):
@@ -19,4 +22,10 @@ class Command(BaseCommand):
         for item in data:
             create_record_from_values(item)
 
-        self.stdout.write(self.style.SUCCESS("Successfully populated the database with values from the CSV file - '{}'".format(path)))
+        self.stdout.write(
+            self.style.SUCCESS(
+                "Successfully populated the database with values from the CSV file - '{}'".format(
+                    path
+                )
+            )
+        )

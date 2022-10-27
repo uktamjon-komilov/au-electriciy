@@ -1,8 +1,12 @@
-import pytest
-from demo.utils import parse_datetime, extract_values, create_record_from_values
-from django.utils import timezone
 import os
+from typing import List
+
+import pytest
 from django.conf import settings
+from django.utils import timezone
+
+from demo.utils import (create_record_from_values, extract_values,
+                        parse_datetime)
 
 
 def test_parse_datetime_works():

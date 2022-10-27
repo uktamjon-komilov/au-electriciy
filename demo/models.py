@@ -18,7 +18,6 @@ class Record(models.Model):
     # The filename of the flow file
     file_name = models.TextField()
 
-
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
