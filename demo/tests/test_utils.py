@@ -20,7 +20,7 @@ def test_extract_values_works():
     assert row["nmi"] == "7142747824"
     assert row["meter_serial_number"] == "DYRGBH6BWPT5"
     assert row["read"] == "99772.0"
-    assert row["date"] == "20040103094843"
+    assert row["date"] == parse_datetime("20040103094843")
 
 
 @pytest.mark.django_db

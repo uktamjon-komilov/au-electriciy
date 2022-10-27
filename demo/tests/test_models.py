@@ -14,7 +14,7 @@ def test_record_can_be_created():
     )
     record.save()
 
-    assert record.id == 1
+    assert record.id < 999
     assert record.nmi == "2291137510"
     assert record.meter_serial_number == "R4ZFLS6ZY1UV"
     assert record.read == "56311.0"

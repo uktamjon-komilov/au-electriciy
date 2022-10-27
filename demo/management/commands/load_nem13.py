@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
+from demo.utils import extract_values, create_record_from_values
 
 
 class Command(BaseCommand):
@@ -8,18 +9,14 @@ class Command(BaseCommand):
         parser.add_argument("csv_path", type=str)
 
     def handle(self, *args, **options):
-        csv_path = options["csv_path"]
-        import csv;
-        lst=[*csv.DictReader(open(csv_path))]
-        from pprint import pprint
-        print(lst)
-        # for poll_id in options['poll_ids']:
-        #     try:
-        #         poll = Poll.objects.get(pk=poll_id)
-        #     except Poll.DoesNotExist:
-        #         raise CommandError('Poll "%s" does not exist' % poll_id)
+        path: str = options["csv_path"]
 
-        #     poll.opened = False
-        #     poll.save()
+        self.stdout.write(self.style.NOTICE("Started extracting values..."))
+        data: List[dict] = extract_values(path)
+        self.stdout.write(self.style.SUCCESS("Finished extracting!"))
 
-        #     self.stdout.write(self.style.SUCCESS('Successfully closed poll "%s"' % poll_id))
+        self.stdout.write(self.style.SUCCESS("Creating database records..."))
+        for item in data:
+            create_record_from_values(item)
+
+        self.stdout.write(self.style.SUCCESS("Successfully populated the database with values from the CSV file - '{}'".format(path)))
